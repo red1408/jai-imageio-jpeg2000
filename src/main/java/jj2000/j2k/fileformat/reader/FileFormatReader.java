@@ -196,7 +196,7 @@ public class FileFormatReader implements FileFormatBoxes{
             while(!lastBoxFound){
                 pos = in.getPos();
                 length = in.readInt();
-                if((pos+length) == in.length())
+                if((pos+length) == in.length() || (pos+length) == (in.length()-1))
                     lastBoxFound = true;
 
                 box = in.readInt();
