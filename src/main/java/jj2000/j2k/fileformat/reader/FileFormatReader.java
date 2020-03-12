@@ -193,10 +193,11 @@ public class FileFormatReader implements FileFormatBoxes{
                 metadata.addNode(new SignatureBox());
 
             // Read all remaining boxes
+            int inputLength = in.length();
             while(!lastBoxFound){
                 pos = in.getPos();
                 length = in.readInt();
-                if((pos+length) == in.length() || (pos+length) == (in.length()-1))
+                if((pos+length) == inputLength || (pos+length) == (inputLength-1))
                     lastBoxFound = true;
 
                 box = in.readInt();
